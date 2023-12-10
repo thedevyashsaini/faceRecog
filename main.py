@@ -16,7 +16,7 @@ if len(args) > 1:
         else:
             print("Exit - err!")
     else:
-        print(f"Error: Invalid argument ({args[1]})")
+        print(f"Error: Invalid argument ({args[1]})\nUsage: python3 main.py [--train <User.Name> | --detect]")
 else: 
     res = User.verify(True)
     if res:
