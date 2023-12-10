@@ -44,6 +44,7 @@ class User():
             face_encodings = face_recognition.face_encodings(frame, face_locations)
 
             wt = 10 if auth else 300
+            found = set()
             for face_encoding, face_location in zip(face_encodings, face_locations):
                 if auth:
                     if found_me:
@@ -68,14 +69,16 @@ class User():
                             top, right, bottom, left = face_location
                             cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
                             cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
-                            face_locations.remove(face_location)
+                            found.add(face_location)
                             break
+
                         c += 1
             
             for i in face_locations:
-                top, right, bottom, left = i
-                cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
-                cv2.putText(frame, "anjaana", (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
+                if i not in found:
+                    top, right, bottom, left = i
+                    cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+                    cv2.putText(frame, "anjaana", (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
             cv2.imshow('Press q to exit authentication...', frame)
                 
             if found_me and auth:
