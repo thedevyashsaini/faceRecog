@@ -8,25 +8,25 @@ A simple facial recognition system with features including face authentication, 
 First install python on your system and then Clone github repository
 
 ```bash
-  git clone https://github.com/thedevyashsaini/faceRecog.git
-  cd faceRecog
+git clone https://github.com/thedevyashsaini/faceRecog.git
+cd faceRecog
 ```
     
 ## Usage
 
 Train new face
 ```bash
-    python3 main.py --train [your name]
+python3 main.py --train [your name]
 ```
 
 Verification for Devyash's face
 ```bash
-    python3 main.py
+python3 main.py
 ```
 
 Realtime face detection
 ```bash
-    python3 main.py --detect
+python3 main.py --detect
 ```
 
 
