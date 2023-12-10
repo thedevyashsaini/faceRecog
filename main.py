@@ -14,7 +14,7 @@ if len(args) > 1:
         if res:
             print("Program Exited with 0 errors.")
         else:
-            print("Exit!")
+            print("Exit - err!")
     else:
         print(f"Error: Invalid argument ({args[1]})")
 else: 

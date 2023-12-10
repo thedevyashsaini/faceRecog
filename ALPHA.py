@@ -12,7 +12,7 @@ import pickle
 class User():
     def verify(auth):
         os.environ["QT_QPA_PLATFORM"] = "xcb"
-        print("Authenticating...")
+        if auth: print("Authenticating...")
 
         if os.path.exists("models.pickle"):
             print("--> Pickle Located")
@@ -20,6 +20,8 @@ class User():
                 res = pickle.load(model)
                 my_face_encoding = res["Devyash.tds"]
         else:
+            if not auth:
+                return False
             import numpy as np
             my_face_encoding = np.load("main.tds.npy")
 
