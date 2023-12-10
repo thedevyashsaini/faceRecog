@@ -11,7 +11,13 @@ First install python on your system and then Clone github repository
 git clone https://github.com/thedevyashsaini/faceRecog.git
 cd faceRecog
 ```
-    
+
+Install required libraries
+
+```bash
+pip install face_recognition opencv-python
+```
+
 ## Usage
 
 Train new face
